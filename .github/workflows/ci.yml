@@ -28,7 +28,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
   publish:
-    needs: builds 
+    needs: build 
       
       
       
