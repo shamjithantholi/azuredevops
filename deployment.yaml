@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: libertyapp
+  labels:
+    app: libertyapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: libertyapp
+  template:
+    metadata:
+      labels:
+        app: libertyapp
+    spec:
+      containers:
+      - name: libertyapp
+        image: docker.io/shamjithantholi/liberty-az:v3.0
+        ports:
+        - containerPort: 9080
+      imagePullSecrets:
+        - name: regcred
