@@ -19,12 +19,12 @@ env:
 
   # 🖊️ EDIT to change the image registry settings.
   # Registries such as GHCR, Quay.io, and Docker Hub are supported.
-  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
-  IMAGE_REGISTRY_USER: ${{ github.actor }}
-  IMAGE_REGISTRY_PASSWORD: ${{ github.token }}
+  IMAGE_REGISTRY: docker.io
+  IMAGE_REGISTRY_USER: ${{ secrets.DOCKER_USERNAME }}
+  IMAGE_REGISTRY_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
   # 🖊️ EDIT to specify custom tags for the container image, or default tags will be generated below.
-  IMAGE_TAGS: ""
+  IMAGE_TAGS: "v4.0"
 
 on:
   # https://docs.github.com/en/actions/reference/events-that-trigger-workflows
@@ -89,7 +89,7 @@ jobs:
       if: env.APP_NAME == ''
       run: |
         echo "APP_NAME=$(basename $PWD)" | tee -a $GITHUB_ENV
-        
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
