@@ -19,6 +19,7 @@ env:
   IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY1 }}
   IBM_CLOUD_REGION: us-south
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
+  IBM_CLOUD_GROUP: ${{ secrets.IBM_CLOUD_GROUP }}
   REGISTRY_HOSTNAME: us.icr.io
   IMAGE_NAME: liberty-az
   IKS_CLUSTER: mycluster-free
@@ -47,7 +48,7 @@ jobs:
     # Authenticate with IBM Cloud CLI
     - name: Authenticate with IBM Cloud CLI
       run: |
-        ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g default
+        ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g "${IBM_CLOUD_GROUP}"
         ibmcloud cr region-set "${IBM_CLOUD_REGION}"
         ibmcloud cr login
 
