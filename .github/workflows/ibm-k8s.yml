@@ -20,7 +20,7 @@ env:
   IBM_CLOUD_REGION: us-south
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
   IBM_CLOUD_GROUP: ${{ secrets.IBM_CLOUD_GROUP }}
-  REGISTRY_HOSTNAME: us.icr.io
+  REGISTRY_HOSTNAME: ca.icr.io
   IMAGE_NAME: liberty-az
   TAGS: v6.0
   IKS_CLUSTER: mycluster-free
@@ -54,7 +54,7 @@ jobs:
         ibmcloud cr login
         
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn package --file pom.xml
       
     # Build the Docker image
     - name: Build with Docker
