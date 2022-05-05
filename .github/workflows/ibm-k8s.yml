@@ -21,7 +21,7 @@ env:
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
   IBM_CLOUD_GROUP: ${{ secrets.IBM_CLOUD_GROUP }}
   REGISTRY_HOSTNAME: us.icr.io
-  IMAGE_NAME: liberty-az
+  IMAGE_NAME: liberty-az:v6.0
   IKS_CLUSTER: mycluster-free
   DEPLOYMENT_NAME: liberty
   PORT: 9080
